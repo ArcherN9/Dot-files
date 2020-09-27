@@ -180,22 +180,27 @@ let g:vim_json_syntax_conceal = 0
 " git-Gutter Configuration Options
 "
 " Enable GitGutter by default for all session
-"
-" Enable GitGutter by default for all session
 let g:gitgutter_enabled                 = 1                         
 " default value (otherwise)
 let g:gitgutter_max_signs               = -1                        
 " gitGutter default key mappings will not be loaded
 let g:gitgutter_map_keys                = 0                         
+" Modify the sign that is used to depict deleted lines from a hunk
 let g:gitgutter_sign_removed            = '-'
+" Enable floating windows to display GitGutter values rather than a separate
+" window at the bottom of the screen
 let g:gitgutter_preview_win_floating    = 1
 highlight GitGutterChange ctermfg=Yellow
 highlight GitGutterDelete ctermfg=Red
 highlight GitGutterAdd    ctermfg=Green
-nmap <C-g>> <Plug>(GitGutterNextHunk)
-nmap <C-g>< <Plug>(GitGutterPrevHunk)
-nmap <C-g>p <Plug>(GitGutterPreviewHunk)
-nmap <C-g>u <Plug>(GitGutterUndoHunk)
+
+" Displays GitDiff in a popup floating window below the currently selected
+" line. 
+nmap <leader>p <Plug>(GitGutterPreviewHunk)
+
+" Deletes the modifications carried out to a hunk when the cursor is hovering
+" over a modified hunk.
+nmap <leader>u <Plug>(GitGutterUndoHunk)
 
 " -----------------------------------------------------------------------
 " Omnisharp Configuration Options
