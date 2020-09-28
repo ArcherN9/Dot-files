@@ -137,6 +137,7 @@ export RUBY=/usr/local/opt/ruby/bin
 export VIM82=/usr/local/share/vim/vim82/tools
 export GOPATH=/Users/daksh_s/.go
 export GOROOT="$(brew --prefix golang)/libexec"
+export TMPMAIL=/opt/tmpmail
 
 # Entries forefully made to enter due software installations | following variables were suggested to be added to $PATH
 export LDFLAGS="-L/usr/local/opt/openssl/lib:-L/usr/local/opt/ruby/lib"
@@ -145,4 +146,4 @@ export OPEN_SSL=/usr/local/opt/openssl/bin
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/ruby/lib/pkgconfig"
 
 # Add all to path
-export PATH=$VIM82:$RUBYGEMS_HOME:$RUBY:$PATH:$ADB_HOME:$PIP:$ANDROID_HOME:$JAVA_HOME:$JDK_HOME:$LDFFLAGS:$CPPFLAGS:$OPEN_SSL:$PKG_CONFIG_PATH:$PIP_INSTALLS:$PIP_INSTALLS_2:$GOPATH:$GOROOT
+export PATH=$VIM82:$RUBYGEMS_HOME:$RUBY:$PATH:$ADB_HOME:$PIP:$ANDROID_HOME:$JAVA_HOME:$JDK_HOME:$LDFFLAGS:$CPPFLAGS:$OPEN_SSL:$PKG_CONFIG_PATH:$PIP_INSTALLS:$PIP_INSTALLS_2:$GOPATH:$GOROOT:$TMPMAIL

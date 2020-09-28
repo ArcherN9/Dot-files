@@ -69,6 +69,8 @@ set background=dark
 " like <leader>w saves the current file
 
 let mapleader = "\\"
+inoremap <silent><nowait>`` <Esc>
+cnoremap <silent><nowait>`` <Esc>
 
 "  Shortcut keys for saving files
 " Fast saving
@@ -97,6 +99,10 @@ map <leader>t :shell<cr>
 " Move the current line around
 nnoremap <S-Up> :m-2<CR>
 nnoremap <S-Down> :m+<CR>
+
+" Remap jump configurations
+nnoremap K {
+nnoremap J }
 
 " Use RegEx search in the current document
 map <C-f> /
@@ -284,17 +290,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
