@@ -101,8 +101,14 @@ nnoremap <S-Up> :m-2<CR>
 nnoremap <S-Down> :m+<CR>
 
 " Remap jump configurations
+" remaps "Jump to previous vacant line" from { to K (Shift + K) 
 nnoremap K {
+" Remaps "Jump to next vacant line" from } to J (Shift + J)
 nnoremap J }
+" Remaps jump to next word from Shift --> to L (Shift + L)
+nnoremap L <S-Right>
+" Remaps jump to end of previous word from Shift <-- to H (Shift + H)
+nnoremap H <S-Left>
 
 " Use RegEx search in the current document
 map <C-f> /
