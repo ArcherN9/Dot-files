@@ -17,6 +17,8 @@ execute pathogen#infect()
 " 9. vim-grammarous - https://github.com/rhysd/vim-grammarous
 " 10. Goyo.vim      - https://github.com/junegunn/goyo.vim
 " 11. Limelight     - https://github.com/junegunn/limelight.vim
+" 12. fern-renderer-nerdfont.vim    - https://github.com/lambdalisue/fern-renderer-nerdfont.vim
+" 13. glyph-palette - https://github.com/lambdalisue/glyph-palette.vim
 " -----------------------------------------------------------------------
 " Standard configurations from Vim that are supported OTB. No plugins required
 
@@ -29,7 +31,6 @@ set relativenumber                      " Show relative line numbers
 set cursorline                          " Highlight current line
 set laststatus=2			" The height of the status bar on the bottom
 set numberwidth=3			" The width of the bar on the left edge
-set conceallevel=2			" Enable conceal 
 set autoread				" Set to auto read when a file is changed from the outside
 set so=7				" Set 7 lines to the cursor - when moving vertically using j/k
 set backspace=eol,start,indent		" Configure backspace so it acts as it should act
@@ -54,11 +55,15 @@ let g:loaded_ctrlp = 1 			" Disables the defauly fuzzy finder plugin ctrlp.vim
 set tabstop=4				" Sets the indentation to 4 spaces and not a tab character
 set shiftwidth=4
 set expandtab
+set encoding=utf8       " UTF8 is required to show glyphs
 try
 	" Set the colortheme as OneDark
 	colorscheme onedark	
 catch
 endtry
+
+let g:vim_markdown_conceal = 0          " Disable conceal. Though a feature to inherently assist to easily read files, I find it difficult to edit markdown elements using this feature.
+let g:vim_markdown_conceal_code_blocks = 0
 
 " Set the background as a Dark theme
 set background=dark						
@@ -403,3 +408,14 @@ augroup Limelight
     autocmd user GoyoEnter Limelight
     autocmd user GoyoLeave Limelight!
 augroup end
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fern-renderer-nerdfont plugin configuration
+let g:fern#renderer = "nerdfont"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" glyph-palette configuration
+
+augroup my-glyph-palette
+  autocmd! *
+  autocmd FileType fern call glyph_palette#apply()
+augroup END
