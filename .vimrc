@@ -19,6 +19,7 @@ execute pathogen#infect()
 " 11. Limelight     - https://github.com/junegunn/limelight.vim
 " 12. fern-renderer-nerdfont.vim    - https://github.com/lambdalisue/fern-renderer-nerdfont.vim
 " 13. glyph-palette - https://github.com/lambdalisue/glyph-palette.vim
+" 14. Fern.vim      - https://github.com/lambdalisue/fern.vim
 " -----------------------------------------------------------------------
 " Standard configurations from Vim that are supported OTB. No plugins required
 
@@ -142,14 +143,17 @@ if (empty($TMUX))
         endif
 endif
 
-" -----------------------------------------------------------------------
-" NERD Tree
-"
-let g:NERDTreeWinPos = "left"
-let NERDTreeShowHidden=1
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=35
-map <leader>nn :NERDTreeToggle<cr>
+" The following maps is related to Window management. Specifically moving the
+" focus around when dealing with multiple windows 
+
+" Moves the current focus to the window on the left
+nnoremap <C-h> <C-w>h
+" Moves the current focus to the window below
+nnoremap <C-j> <C-w>j
+" Moves the current focus to the window up
+nnoremap <C-k> <C-w>k
+" Moves the current focus to the window on the right
+nnoremap <C-l> <C-w>l
 " -----------------------------------------------------------------------
 " Vim-Airline configuration options
 
@@ -409,6 +413,11 @@ augroup Limelight
     autocmd user GoyoLeave Limelight!
 augroup end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fern.vim configuration
+
+nnoremap <C-n> :Fern -drawer . -reveal=% <CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 " fern-renderer-nerdfont plugin configuration
 let g:fern#renderer = "nerdfont"
 
