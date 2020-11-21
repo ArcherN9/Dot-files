@@ -87,21 +87,11 @@ nmap <silent><leader>wq :wq!<cr>
 " Fast Quit without saving
 nmap <silent><leader>qq :q!<cr>
 
-
 " Tab management with VIM
 " Useful mappings for managing tabs
 map <leader>q :tabclose<cr>
-map <leader>tn :tabnew
 map <leader>1 :tabprevious<cr>
 map <leader>2 :tabnext<cr>
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
-map <leader>te :tabedit <C-r>=expand("%:p:h")<cr>/
-
-" Closes vim temporarily to access the shell
-" particularly useful if you want to run or check something
-" from the same directory. Like checking whats git status
-map <leader>t :shell<cr>
 
 " Move the current line around
 nnoremap <S-Up> :m-2<CR>
