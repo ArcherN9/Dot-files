@@ -287,13 +287,14 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Tab management with VIM
+" Useful mappings for managing tabs
+map <leader>q :tabclose<cr>
+map <leader>1 :tabprevious<cr>
+map <leader>2 :tabnext<cr>
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gk <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
