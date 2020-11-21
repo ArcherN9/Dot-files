@@ -159,13 +159,15 @@ let g:indentLine_char = '¦'
 " Folding is enabled by default. Disable the folding configuration
 let g:vim_markdown_folding_disabled = 1	
 
-" Allow for the TOC window to auto-fit when it's possible for it to shrink. It never increases its default size (half screen), it only shrinks.
+" Allow for the TOC window to auto-fit when it's possible for it to shrink. It never 
+" increases its default size (half screen), it only shrinks.
 let g:vim_markdown_toc_autofit = 1
 
 " Highlight JSON front matter as used by Hugo. | Requires vim-json
 let g:vim_markdown_json_frontmatter = 1
 
-" Use filetype name as fenced code block languages for syntax highlighting. If you want to use different name from filetype, you can add it in your .vimrc like so. Default is ['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini']
+" Use filetype name as fenced code block languages for syntax highlighting. If you 
+" want to use different name from filetype, you can add it in your .vimrc like so. Default is ['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini']
 let g:vim_markdown_fenced_languages = ['csharp=cs', 'gradle=gradle']
 
 " Strikethrough uses two tildes
