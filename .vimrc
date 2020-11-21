@@ -371,18 +371,29 @@ augroup Limelight
     autocmd user GoyoLeave Limelight!
 augroup end
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fern.vim configuration
-
-nnoremap <C-n> :Fern -drawer . -reveal=% <CR>
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" fern-renderer-nerdfont plugin configuration
-let g:fern#renderer = "nerdfont"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " glyph-palette configuration
 
 augroup my-glyph-palette
   autocmd! *
   autocmd FileType fern call glyph_palette#apply()
+augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fern.vim configuration
+
+nnoremap <C-n> :Fern -drawer . -reveal=% <CR>
+
+" fern-renderer-nerdfont plugin configuration
+let g:fern#renderer = "nerdfont"
+
+" The following section auto executes bindings when the user is within the
+" fern window
+function! s:init_fern() abort
+  " Use 'select' instead of 'edit' for default 'open' action
+  nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+endfunction
+
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
 augroup END
