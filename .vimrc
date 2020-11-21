@@ -18,8 +18,10 @@ execute pathogen#infect()
 " 10. Goyo.vim          - https://github.com/junegunn/goyo.vim
 " 11. Limelight         - https://github.com/junegunn/limelight.vim
 " 12. fern-renderer-nerdfont.vim    - https://github.com/lambdalisue/fern-renderer-nerdfont.vim
-" 13. glyph-palette - https://github.com/lambdalisue/glyph-palette.vim
-" 14. Fern.vim      - https://github.com/lambdalisue/fern.vim
+" 13. glyph-palette     - https://github.com/lambdalisue/glyph-palette.vim
+" 14. Fern.vim          - https://github.com/lambdalisue/fern.vim
+" 15. dart-vim-plugin   - https://github.com/dart-lang/dart-vim-plugin
+" 16. Coc-Fzf           - https://github.com/antoinemadec/coc-fzf
 " -----------------------------------------------------------------------
 " Standard configurations from Vim that are supported OTB. No plugins required
 
