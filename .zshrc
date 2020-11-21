@@ -69,6 +69,8 @@ export DEFAULT_USER=daksh_s
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  adb
+  gitignore
 )
 
 # Load configuration files for different tasks
