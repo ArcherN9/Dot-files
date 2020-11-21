@@ -35,7 +35,8 @@ set cursorline                          " Highlight current line
 set laststatus=2			" The height of the status bar on the bottom
 set numberwidth=3			" The width of the bar on the left edge
 set autoread				" Set to auto read when a file is changed from the outside
-set so=7				" Set 7 lines to the cursor - when moving vertically using j/k
+set so=7				    " Set 7 lines to the cursor - when moving vertically using j/k
+set mouse=a                 " Allow to scroll in the preview mode
 set backspace=eol,start,indent		" Configure backspace so it acts as it should act
 set whichwrap+=<,>,h,l
 set ignorecase				" Ignore case when searching
