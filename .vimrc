@@ -397,3 +397,33 @@ augroup fern-custom
   autocmd! *
   autocmd FileType fern call s:init_fern()
 augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Dart-vim-plugin configuration
+" 
+" Enable HTML syntax highlighting inside Dart strings
+let dart_html_in_string=v:true
+
+" Enable DartFmt execution on buffer save
+let g:dart_format_on_save = 1
+
+" Enable Dart style guide syntax but with 4 space indentation
+let g:dart_style_guide = 2
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Coc-FZF configurations
+" 
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+
+nmap <C-o> :FZF <CR>
+imap <C-o> :FZF <CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim FZF Configuration
+"
+" If installed using Homebrew, Enable FZF to run inside Vim
+set rtp+=/usr/local/opt/fzf
+
+" With the FZF integration for CoC, CoCList commands are circumvented to
+" use CocFzfList instead. This shows previews in an FZF preview window
+" alongwith FZF style fuzzy completion
+nnoremap <silent> <c-p> :<C-u>CocFzfList commands<CR>
