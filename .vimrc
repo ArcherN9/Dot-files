@@ -287,6 +287,12 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
+" Tab management with VIM
+" Useful mappings for managing tabs
+map <leader>q :tabclose<cr>
+map <leader>1 :tabprevious<cr>
+map <leader>2 :tabnext<cr>
+
 " GoTo code navigation.
 nmap <silent> gk <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
