@@ -78,8 +78,6 @@ set background=dark
 " like <leader>w saves the current file
 
 let mapleader = "\\"
-inoremap <silent><nowait>`` <Esc>
-cnoremap <silent><nowait>`` <Esc>
 
 "  Shortcut keys for saving files
 " Fast saving
