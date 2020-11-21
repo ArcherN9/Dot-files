@@ -207,11 +207,22 @@ highlight GitGutterAdd    ctermfg=Green
 
 " Displays GitDiff in a popup floating window below the currently selected
 " line. 
-nmap <leader>p <Plug>(GitGutterPreviewHunk)
+nmap <C-g>p <Plug>(GitGutterPreviewHunk)
 
 " Deletes the modifications carried out to a hunk when the cursor is hovering
 " over a modified hunk.
-nmap <leader>u <Plug>(GitGutterUndoHunk)
+nmap <C-g>u <Plug>(GitGutterUndoHunk)
+
+" At times, it is important to just view Modifications made in a file. Using
+" this section, a user may iteratively jump to different hunks within a file.
+nmap <C-g><Down> <Plug>(GitGutterNextHunk)
+nmap <C-g><Up> <Plug>(GitGutterPrevHunk)
+
+" To use this, place the editor in Visual mode, select the code section that
+" is to be staged and stage the changes.
+" This lets a file be staged incrementally to accommodate multiple changes
+" within a file with different commit messageds
+nmap <C-g>s <Plug>(GitGutterStageHunk)
 
 " -----------------------------------------------------------------------
 " Omnisharp Configuration Options
