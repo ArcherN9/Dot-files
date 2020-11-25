@@ -22,6 +22,7 @@ execute pathogen#infect()
 " 14. Fern.vim          - https://github.com/lambdalisue/fern.vim
 " 15. dart-vim-plugin   - https://github.com/dart-lang/dart-vim-plugin
 " 16. Coc-Fzf           - https://github.com/antoinemadec/coc-fzf
+" 17. vim-commentary    - https://github.com/tpope/vim-commentary
 " -----------------------------------------------------------------------
 " Standard configurations from Vim that are supported OTB. No plugins required
 
