@@ -427,3 +427,12 @@ set rtp+=/usr/local/opt/fzf
 " use CocFzfList instead. This shows previews in an FZF preview window
 " alongwith FZF style fuzzy completion
 nnoremap <silent> <c-p> :<C-u>CocFzfList commands<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim Commentary configuration
+
+" The following remaps :Commentary command default keyman from gcc and gc
+" to double decimals. Tried modifying this to <C-/> but wasn't able to.
+" TODO: Attempt at remapping this to <C-/> at a future date.
+nmap .. gcc
+vmap .. gc
