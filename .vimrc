@@ -5,24 +5,25 @@
 " All packages under ~/.vim/bundle are installed automatically
 execute pathogen#infect()
 
-" A list of all plugins installed is mentioned below
-" 1. Vim-Airline 	    - https://github.com/vim-airline/vim-airline
-" 2. onedark.vim 	    - https://github.com/joshdick/onedark.vim
-" 3. indentLine		    - https://github.com/Yggdroot/indentLine
-" 4. vim-markdown	    - https://github.com/plasticboy/vim-markdown
-" 5. vim-json		    - https://github.com/elzr/vim-json
-" 6. vim-gitgutter	    - https://github.com/airblade/vim-gitgutter
-" 7. omnisharp-vim	    - https://github.com/OmniSharp/omnisharp-vim
-" 8. vim-coc            - https://github.com/neoclide/coc.nvim
-" 9. vim-grammarous     - https://github.com/rhysd/vim-grammarous
-" 10. Goyo.vim          - https://github.com/junegunn/goyo.vim
-" 11. Limelight         - https://github.com/junegunn/limelight.vim
-" 12. fern-renderer-nerdfont.vim    - https://github.com/lambdalisue/fern-renderer-nerdfont.vim
-" 13. glyph-palette     - https://github.com/lambdalisue/glyph-palette.vim
-" 14. Fern.vim          - https://github.com/lambdalisue/fern.vim
-" 15. dart-vim-plugin   - https://github.com/dart-lang/dart-vim-plugin
-" 16. Coc-Fzf           - https://github.com/antoinemadec/coc-fzf
-" 17. vim-commentary    - https://github.com/tpope/vim-commentary
+"  A list of all plugins installed is mentioned below
+"  Vim-Airline 	        - https://github.com/vim-airline/vim-airline
+"  onedark.vim 	        - https://github.com/joshdick/onedark.vim
+"  indentLine		    - https://github.com/Yggdroot/indentLine
+"  vim-markdown	        - https://github.com/plasticboy/vim-markdown
+"  vim-json		        - https://github.com/elzr/vim-json
+"  vim-gitgutter	    - https://github.com/airblade/vim-gitgutter
+"  omnisharp-vim	    - https://github.com/OmniSharp/omnisharp-vim
+"  vim-coc              - https://github.com/neoclide/coc.nvim
+"  Goyo.vim             - https://github.com/junegunn/goyo.vim
+"  Limelight            - https://github.com/junegunn/limelight.vim
+"  fern-renderer-nerdfont.vim    - https://github.com/lambdalisue/fern-renderer-nerdfont.vim
+"  glyph-palette        - https://github.com/lambdalisue/glyph-palette.vim
+"  Fern.vim             - https://github.com/lambdalisue/fern.vim
+"  dart-vim-plugin      - https://github.com/dart-lang/dart-vim-plugin
+"  Coc-Fzf              - https://github.com/antoinemadec/coc-fzf
+"  vim-commentary       - https://github.com/tpope/vim-commentary
+"  kotlin-vim           - https://github.com/udalov/kotlin-vim
+"  neomake              - https://github.com/neomake/neomake
 " -----------------------------------------------------------------------
 " Standard configurations from Vim that are supported OTB. No plugins required
 
