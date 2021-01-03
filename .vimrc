@@ -97,8 +97,10 @@ map <leader>1 :tabprevious<cr>
 map <leader>2 :tabnext<cr>
 
 " Move the current line around
-nnoremap <S-Up> :m-2<CR>
 nnoremap <S-Down> :m+<CR>
+vnoremap <S-Up> :m-2<CR>
+nnoremap <S-Up> :m-2<CR>
+vnoremap <S-Down> :m+<CR>
 
 " Remap jump configurations
 " remaps "Jump to previous vacant line" from { to K (Shift + K) 
@@ -329,38 +331,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim Grammarous Configuration Options
-"
-" Specify an Autocommand group for GrammarousCheck.
-" GrammarousCheck is set to be enabled only for files that need spell
-" checking and not all. Check filetypes for supported types.
-augroup GrammarousCheckOnTextFilesOnly
-    autocmd!
-    " Enable Grammarous centric commands for specified filetype(s).
-    autocmd FileType html,markdown :call s:EnableGrammarous()
-augroup end
-
-" A function that defines the keys to be mapped if Grammarous is to be enabled
-" on any of the file types.
-function! s:EnableGrammarous()
-    noremap <leader>sg :GrammarousCheck<cr>
-    " Reset the current check
-    nmap ge <Plug>(grammarous-reset)
-    " Fix the error under the cursor automatically
-    nmap gf <Plug>(grammarous-fixit)
-    " Move cursor to the next error
-    nmap gn <Plug>(grammarous-move-to-next-error) 
-    " Move cursor to the previous error
-    nmap gp <Plug>(grammarous-move-to-previous-error)
-    " Open the info window for the error under the cursor
-    nmap go <Plug>(grammarous-open-info-window)
-    " Remove the error under the cursor
-    nmap gr <Plug>(grammarous-remove-error)
-    " Disable the grammar rule under the cursor
-    nmap gd <Plug>(grammarous-disable-rule)
-endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Goyo Vim configurations
