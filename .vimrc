@@ -24,6 +24,7 @@ execute pathogen#infect()
 "  vim-commentary       - https://github.com/tpope/vim-commentary
 "  kotlin-vim           - https://github.com/udalov/kotlin-vim
 "  neomake              - https://github.com/neomake/neomake
+"  vim-floaterm         - https://github.com/voldikss/vim-floaterm
 " -----------------------------------------------------------------------
 " Standard configurations from Vim that are supported OTB. No plugins required
 
@@ -63,16 +64,16 @@ set shiftwidth=4
 set expandtab
 set encoding=utf8       " UTF8 is required to show glyphs
 try
-	" Set the colortheme as OneDark
-	colorscheme onedark	
+	colorscheme nord
 catch
 endtry
-
 let g:vim_markdown_conceal = 0          " Disable conceal. Though a feature to inherently assist to easily read files, I find it difficult to edit markdown elements using this feature.
 let g:vim_markdown_conceal_code_blocks = 0
 
 " Set the background as a Dark theme
 set background=dark						
+" Setup a similar theme for Airline too
+let g:airline_theme='base16_nord'
 
 " Customize the map leader. Wherever <leader> shows up on vimrc
 " this is the key that replaces it when dealing with hot keys
@@ -430,11 +431,42 @@ set rtp+=/usr/local/opt/fzf
 " alongwith FZF style fuzzy completion
 nnoremap <silent> <c-p> :<C-u>CocFzfList commands<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim Commentary configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ " Vim auto commands for Kotlin using Floaterm
 
-" The following remaps :Commentary command default keyman from gcc and gc
-" to double decimals. Tried modifying this to <C-/> but wasn't able to.
-" TODO: Attempt at remapping this to <C-/> at a future date.
-nmap .. gcc
-vmap .. gc
+augroup kotlin
+   autocmd!
+   autocmd Filetype kotlin compiler kotlinc
+   autocmd FileType kotlin nnoremap <F3> :call <SID>KotlinCompileFlow() <CR>
+   autocmd FileType kotlin command! REPL :FloatermNew --title=REPL($1/$2) --autoclose=2 kotlinc
+   autocmd FileType kotlin nnoremap <F4> :call <SID>KotlinExecute() <CR>
+augroup END
+
+function! s:KotlinCompileFlow()
+    make
+    copen
+    redraw!
+endfunction
+
+function! s:KotlinExecute()
+    execute 'FloatermNew! --title=Executing\ '.expand('%').'\ ($1/$2) --autoclose=1
+                \ GREEN="\033[0;32m" && 
+                \ YELLOW="\033[1;33m" &&
+                \ L_GREY="\033[0;37m" &&
+                \ clear &&
+                \ echo \\\n\\\n${GREEN}\[Executing\]${YELLOW} '.expand('%:p').'
+                \ \\\n${L_GREY}----------------------------------- &&
+                \ java -jar '.expand('%').'.jar'
+endfunction
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-Floaterm configuration
+"
+" Opens up a float term window when the user presses <\-t>
+let g:floaterm_keymap_toggle = '<leader>t'
+
+" Define a new Title for the terminal that opens up
+let g:floaterm_title = "Terminal ($1/$2)"
+
+" Whether to close floaterm window once the job gets finished.
+let g:floaterm_autoclose = 2
