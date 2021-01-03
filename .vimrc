@@ -401,16 +401,26 @@ nnoremap <silent> <c-p> :<C-u>CocFzfList commands<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  " Vim auto commands for Kotlin using Floaterm
-
+ " The Kotlin Autocommand group deals with setting up a development
+ " environment for Kotlin projects/singluar kotlin files.
+ " It contains hotkeys to toggle QuickFix, compile and execute the program
+ " And opening up a Kotlin REPL
 augroup kotlin
    autocmd!
+   " Declare kotlin compiler for any filetype ending with Kotlin. This is used
+   " with :compiler and declared manually in /usr/local/share/vim/vim82/compiler/
    autocmd Filetype kotlin compiler kotlinc
+   " A keymap to Toggle the Quickix window.
    autocmd Filetype kotlin nnoremap <F1> :call <SID>QFixToggle() <CR>
-   autocmd FileType kotlin nnoremap <F3> :call <SID>KotlinCompileFlow() <CR>
+   " A Keymap to compile the pgram asynchornously through Neomake
+   autocmd FileType kotlin nnoremap <F3> :Neomake! <CR>
+   " A keymap to execute the program
    autocmd FileType kotlin nnoremap <F4> :call <SID>KotlinExecute() <CR>
+   " No Keymap for REPL | Just a command
    autocmd FileType kotlin command! REPL :FloatermNew --title=REPL($1/$2) --autoclose=2 kotlinc
 augroup END
 
+" A function that toggles The quickfix window 
 function! s:QFixToggle()
   if exists("g:qfix_win")
     cclose
@@ -421,11 +431,9 @@ function! s:QFixToggle()
   endif
 endfunction
 
-function! s:KotlinCompileFlow()
-    Neomake!
-    redraw!
-endfunction
-
+" The function is executed from augroup Kotlin.
+" It is designed to execute the current Kotlin file being worked on through
+" vim-floaterm.
 function! s:KotlinExecute()
     execute 'FloatermNew! --title=Executing\ '.expand('%').'\ ($1/$2) --autoclose=1
                 \ GREEN="\033[0;32m" && 
