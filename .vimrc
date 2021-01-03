@@ -98,9 +98,7 @@ map <leader>2 :tabnext<cr>
 
 " Move the current line around
 nnoremap <S-Down> :m+<CR>
-vnoremap <S-Up> :m-2<CR>
 nnoremap <S-Up> :m-2<CR>
-vnoremap <S-Down> :m+<CR>
 
 " Remap jump configurations
 " remaps "Jump to previous vacant line" from { to K (Shift + K) 
@@ -407,14 +405,24 @@ nnoremap <silent> <c-p> :<C-u>CocFzfList commands<CR>
 augroup kotlin
    autocmd!
    autocmd Filetype kotlin compiler kotlinc
+   autocmd Filetype kotlin nnoremap <F1> :call <SID>QFixToggle() <CR>
    autocmd FileType kotlin nnoremap <F3> :call <SID>KotlinCompileFlow() <CR>
-   autocmd FileType kotlin command! REPL :FloatermNew --title=REPL($1/$2) --autoclose=2 kotlinc
    autocmd FileType kotlin nnoremap <F4> :call <SID>KotlinExecute() <CR>
+   autocmd FileType kotlin command! REPL :FloatermNew --title=REPL($1/$2) --autoclose=2 kotlinc
 augroup END
 
+function! s:QFixToggle()
+  if exists("g:qfix_win")
+    cclose
+    unlet g:qfix_win
+  else
+    copen 10
+    let g:qfix_win = bufnr("$")
+  endif
+endfunction
+
 function! s:KotlinCompileFlow()
-    make
-    copen
+    Neomake!
     redraw!
 endfunction
 
@@ -422,7 +430,7 @@ function! s:KotlinExecute()
     execute 'FloatermNew! --title=Executing\ '.expand('%').'\ ($1/$2) --autoclose=1
                 \ GREEN="\033[0;32m" && 
                 \ YELLOW="\033[1;33m" &&
-                \ L_GREY="\033[0;37m" &&
+                \ L_GREY="\033[0;248m" &&
                 \ clear &&
                 \ echo \\\n\\\n${GREEN}\[Executing\]${YELLOW} '.expand('%:p').'
                 \ \\\n${L_GREY}----------------------------------- &&
