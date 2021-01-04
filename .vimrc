@@ -53,6 +53,7 @@ set noerrorbells			" No annoying sound on errors
 set novisualbell
 set t_vb=
 set tm=500
+set colorcolumn=80          " A color Column creates a vertical bar at the 80th column.
 set nobackup				" Turn backup off, since most stuff is in SVN, git etc. anyway
 set nowb
 set noswapfile
