@@ -145,6 +145,16 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 " Moves the current focus to the window on the right
 nnoremap <C-l> <C-w>l
+
+nnoremap ˙ :vertical resize -2 <CR>
+nnoremap ¬ :vertical resize +2 <CR>
+nnoremap ∆ :resize -2 <CR>
+nnoremap ˚ :resize +2 <CR>
+
+inoremap ˙ :vertical resize -2 <CR>
+inoremap ¬ :vertical resize +2 <CR>
+inoremap ∆ :resize -2 <CR>
+inoremap ˚ :resize +2 <CR>
 " -----------------------------------------------------------------------
 " Vim-Airline configuration options
 
