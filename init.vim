@@ -1,69 +1,120 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""d
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: ArcherN9
 
-" Sets up vim dependency installation through pathogen.
-" All packages under ~/.vim/bundle are installed automatically
-execute pathogen#infect()
+" Sets up NeoVim dependency installation through Vim Plug.
+" All packages under ~/.config/nvim/bundle are installed automatically
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.config/nvim/plugged')
 
 "  A list of all plugins installed is mentioned below
-"  Vim-Airline 	        - https://github.com/vim-airline/vim-airline
-"  onedark.vim 	        - https://github.com/joshdick/onedark.vim
-"  indentLine		    - https://github.com/Yggdroot/indentLine
-"  vim-markdown	        - https://github.com/plasticboy/vim-markdown
-"  vim-json		        - https://github.com/elzr/vim-json
-"  vim-gitgutter	    - https://github.com/airblade/vim-gitgutter
-"  omnisharp-vim	    - https://github.com/OmniSharp/omnisharp-vim
-"  vim-coc              - https://github.com/neoclide/coc.nvim
-"  Goyo.vim             - https://github.com/junegunn/goyo.vim
-"  Limelight            - https://github.com/junegunn/limelight.vim
-"  fern-renderer-nerdfont.vim    - https://github.com/lambdalisue/fern-renderer-nerdfont.vim
-"  glyph-palette        - https://github.com/lambdalisue/glyph-palette.vim
-"  Fern.vim             - https://github.com/lambdalisue/fern.vim
-"  dart-vim-plugin      - https://github.com/dart-lang/dart-vim-plugin
-"  Coc-Fzf              - https://github.com/antoinemadec/coc-fzf
-"  vim-commentary       - https://github.com/tpope/vim-commentary
-"  kotlin-vim           - https://github.com/udalov/kotlin-vim
-"  neomake              - https://github.com/neomake/neomake
-"  vim-floaterm         - https://github.com/voldikss/vim-floaterm
-" -----------------------------------------------------------------------
-" Standard configurations from Vim that are supported OTB. No plugins required
+"
+"  Vim-Airline 	        		https://github.com/vim-airline/vim-airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-syntax enable 				" Turn on syntax highlighting.
+"  onedark.vim 	        		https://github.com/joshdick/onedark.vim
+Plug 'joshdick/onedark.vim'
+
+"  indentLine		    		https://github.com/Yggdroot/indentLine
+Plug 'Yggdroot/indentLine'
+
+"  vim-markdown	        		https://github.com/plasticboy/vim-markdown
+Plug 'plasticboy/vim-markdown'
+
+"  vim-json		        	https://github.com/elzr/vim-json
+Plug 'elzr/vim-json'
+
+"  vim-gitgutter	    		https://github.com/airblade/vim-gitgutter
+Plug 'airblade/vim-gitgutter'
+
+"  omnisharp-vim	   		https://github.com/OmniSharp/omnisharp-vim
+Plug 'OmniSharp/omnisharp-vim'
+
+"  vim-coc              		https://github.com/neoclide/coc.nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"  Goyo.vim             		https://github.com/junegunn/goyo.vim
+Plug 'junegunn/goyo.vim'
+
+"  Limelight            		https://github.com/junegunn/limelight.vim
+Plug 'junegunn/limelight.vim'
+
+"  fern-renderer-nerdfont.vim    	https://github.com/lambdalisue/fern-renderer-nerdfont.vim
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+
+"  glyph-palette        		https://github.com/lambdalisue/glyph-palette.vim
+Plug 'lambdalisue/glyph-palette.vim'
+
+"  Fern.vim             		https://github.com/lambdalisue/fern.vim
+Plug 'lambdalisue/fern.vim'
+
+"  dart-vim-plugin      		https://github.com/dart-lang/dart-vim-plugin
+Plug 'dart-lang/dart-vim-plugin'
+
+"  Coc-Fzf              		https://github.com/antoinemadec/coc-fzf
+Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
+Plug 'junegunn/fzf.vim' " needed for previews
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+
+"  vim-commentary       		https://github.com/tpope/vim-commentary
+Plug 'tpope/vim-commentary'
+
+"  kotlin-vim           		https://github.com/udalov/kotlin-vim
+Plug 'udalov/kotlin-vim'
+
+"  neomake              		https://github.com/neomake/neomake
+Plug 'neomake/neomake'
+
+"  vim-floaterm         		https://github.com/voldikss/vim-floaterm
+Plug 'voldikss/vim-floaterm'
+
+" Nord-Vim                      https://github.com/arcticicestudio/nord-vim
+Plug 'arcticicestudio/nord-vim'
+
+" -----------------------------------------------------------------------
+"
+" Initialize plugin system
+call plug#end()
+
+let g:loaded_python_provider = 0        " Disables Python2 support with EOL
+syntax enable 				            " Turn on syntax highlighting.
 filetype plugin on                      " Enable vim to recognize different file types
-filetype indent on			" Unknown import - From omnisharp Vim
+filetype indent on			            " Unknown import - From omnisharp Vim
 set showcmd                             " Display an incomplete command on the bottom right corner
 set number                              " Show line numbers.
 set relativenumber                      " Show relative line numbers
 set cursorline                          " Highlight current line
-set laststatus=2			" The height of the status bar on the bottom
-set numberwidth=3			" The width of the bar on the left edge
-set autoread				" Set to auto read when a file is changed from the outside
-set so=7				    " Set 7 lines to the cursor - when moving vertically using j/k
-set mouse=a                 " Allow to scroll in the preview mode
-set backspace=eol,start,indent		" Configure backspace so it acts as it should act
+set laststatus=2			            " The height of the status bar on the bottom
+set numberwidth=3			            " The width of the bar on the left edge
+set autoread				            " Set to auto read when a file is changed from the outside
+set so=7				                " Set 7 lines to the cursor - when moving vertically using j/k
+set mouse=a                             " Allow to scroll in the preview mode
+set backspace=eol,start,indent		    " Configure backspace so it acts as it should act
 set whichwrap+=<,>,h,l
-set ignorecase				" Ignore case when searching
-set smartcase				" When searching try to be smart about cases
-set hlsearch				" Highlight search results
-set incsearch				" Makes search act like search in modern browsers
-set lazyredraw				" Don't redraw while executing macros (good performance config)
-set magic				" For regular expressions turn magic on
-set showmatch				" Show matching brackets when text indicator is over them
-set noerrorbells			" No annoying sound on errors
+set ignorecase				            " Ignore case when searching
+set smartcase				            " When searching try to be smart about cases
+set hlsearch				            " Highlight search results
+set incsearch				            " Makes search act like search in modern browsers
+set lazyredraw				            " Don't redraw while executing macros (good performance config)
+set magic			    	            " For regular expressions turn magic on
+set showmatch				            " Show matching brackets when text indicator is over them
+set noerrorbells			            " No annoying sound on errors
 set novisualbell
 set t_vb=
 set tm=500
-set colorcolumn=80          " A color Column creates a vertical bar at the 80th column.
-set nobackup				" Turn backup off, since most stuff is in SVN, git etc. anyway
+set colorcolumn=80                      " A color Column creates a vertical bar at the 80th column.
+set nobackup				            " Turn backup off, since most stuff is in SVN, git etc. anyway
 set nowb
 set noswapfile
-set ai 					" Auto indent
-set si 					" Smart indent
-let g:loaded_ctrlp = 1 			" Disables the defauly fuzzy finder plugin ctrlp.vim
-set tabstop=4				" Sets the indentation to 4 spaces and not a tab character
+set ai 					                " Auto indent
+set si 					                " Smart indent
+let g:loaded_ctrlp = 1 			        " Disables the defauly fuzzy finder plugin ctrlp.vim
+set tabstop=4				            " Sets the indentation to 4 spaces and not a tab character
 set shiftwidth=4
 set expandtab
-set encoding=utf8       " UTF8 is required to show glyphs
+set encoding=utf8                       " UTF8 is required to show glyphs
 try
 	colorscheme nord
 catch
