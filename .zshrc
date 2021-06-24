@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/daksh_s/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -77,11 +77,14 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Loads FZF configuration file if it exists
-[ -f /Users/daksh_s/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 # Load other configuration files stored in the system. These files may carry configuration for other programs that need to be loaded along with zhrc
 #[ -f /Users/daksh_s/.azure/.azure_personal_variable ] && source ~/.azure/.azure_personal_variable
+# Load AZ autocompletion script from Bash completion
+[ -f /usr/local/etc/bash_completion.d/az ] && source /usr/local/etc/bash_completion.d/az
+
 # Custom key bindings setup for the ZSH terminal
-[ -f /Users/daksh_s/.dot-files/.key_bindings.zsh ] && source /Users/daksh_s/.dot-files/.key_bindings.zsh
+[ -f $HOME/.dot-files/.key_bindings.zsh ] && source $HOME/.dot-files/.key_bindings.zsh
 
 # User configuration
 
@@ -90,19 +93,20 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# Setting up environment variable for td-cli app to detect its database and configuration home
-export TD_CLI_HOME=~/.config/td-cli
-
 # Setting up environment variables required for Pass utility to function properly 
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
-export PASSWORD_STORE_DIR=~/.password-store
+export PASSWORD_STORE_DIR=$HOME/.password-store
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
+
+# Bind option + left and option + right key to move words
+bindkey "^[^[[C" forward-word
+bindkey "^[^[[D" backward-word
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -123,6 +127,7 @@ export PASSWORD_STORE_DIR=~/.password-store
 # FZF and copy passwords to the clip board
 alias pc="pass clip"
 alias c="clear"
+alias vim="nvim"
 
 # Setup custom export variables
 export ADB_HOME=/Users/daksh_s/Library/Android/sdk/platform-tools/
@@ -134,10 +139,11 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Hom
 export JDK_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export RUBYGEMS_HOME=/usr/local/lib/ruby/gems/2.7.0/bin
+export RUBYGEMS_HOME=/Users/daksh_s/.gem/ruby/3.0.0/bin
 export RUBY=/usr/local/opt/ruby/bin
-export VIM82=/usr/local/share/vim/vim82/tools
 export FLUTTER_BIN=/opt/flutter/bin
+export EDITOR='nvim'
+export FrameworkPathOverride=$(which mono)
 
 # Bat Configuration
 export BAT_CONFIG_PATH=/Users/daksh_s/.dot-files/bat.conf
@@ -149,4 +155,6 @@ export OPEN_SSL=/usr/local/opt/openssl/bin
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/ruby/lib/pkgconfig"
 
 # Add all to path
-export PATH=$VIM82:$RUBYGEMS_HOME:$RUBY:$PATH:$ADB_HOME:$PIP:$ANDROID_HOME:$JAVA_HOME:$JDK_HOME:$LDFFLAGS:$CPPFLAGS:$OPEN_SSL:$PKG_CONFIG_PATH:$PIP_INSTALLS:$PIP_INSTALLS_2:$FLUTTER_BIN:$BAT_CONFIG_PATH
+export PATH=$RUBYGEMS_HOME:$RUBY:$PATH:$ADB_HOME:$PIP:$ANDROID_HOME:$JAVA_HOME:$JDK_HOME:$LDFFLAGS:$CPPFLAGS:$OPEN_SSL:$PKG_CONFIG_PATH:$PIP_INSTALLS:$PIP_INSTALLS_2:$FLUTTER_BIN:$BAT_CONFIG_PATH:$FrameworkPathOverride
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

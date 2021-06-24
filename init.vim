@@ -73,6 +73,12 @@ Plug 'voldikss/vim-floaterm'
 " Nord-Vim                      https://github.com/arcticicestudio/nord-vim
 Plug 'arcticicestudio/nord-vim'
 
+" Material.vim                  https://github.com/kaicataldo/material.vim
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+
+" Live markdown preview         https://github.com/iamcco/markdown-preview.nvim
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}                               
+
 " -----------------------------------------------------------------------
 "
 " Initialize plugin system
@@ -116,7 +122,7 @@ set shiftwidth=4
 set expandtab
 set encoding=utf8                       " UTF8 is required to show glyphs
 try
-	colorscheme nord
+	colorscheme material
 catch
 endtry
 let g:vim_markdown_conceal = 0          " Disable conceal. Though a feature to inherently assist to easily read files, I find it difficult to edit markdown elements using this feature.
@@ -125,7 +131,8 @@ let g:vim_markdown_conceal_code_blocks = 0
 " Set the background as a Dark theme
 set background=dark						
 " Setup a similar theme for Airline too
-let g:airline_theme='base16_nord'
+let g:airline_theme='luna'
+let g:material_theme_style = 'lighter-community'
 
 " Customize the map leader. Wherever <leader> shows up on vimrc
 " this is the key that replaces it when dealing with hot keys
@@ -296,7 +303,7 @@ nmap <C-g>s <Plug>(GitGutterStageHunk)
 let g:OmniSharp_server_stdio = 1
 
 " On Mac OS, using Mono is a requirement
-let g:OmniSharp_server_use_mono = 1
+"let g:OmniSharp_server_use_mono = 1
 " -----------------------------------------------------------------------
 " CoC Configuration Options
 "
@@ -477,7 +484,7 @@ augroup kotlin
    " A Keymap to compile the pgram asynchornously through Neomake
    autocmd FileType kotlin nnoremap <F3> :Neomake! <CR>
    " A keymap to execute the program
-   autocmd FileType kotlin nnoremap <F4> :call <SID>KotlinExecute() <CR>
+   autocmd FileType kotlin nnoremap <F5> :call <SID>KotlinExecute() <CR>
    " No Keymap for REPL | Just a command
    autocmd FileType kotlin command! REPL :FloatermNew --title=REPL($1/$2) --autoclose=2 kotlinc
 augroup END
@@ -518,3 +525,21 @@ let g:floaterm_title = "Terminal ($1/$2)"
 
 " Whether to close floaterm window once the job gets finished.
 let g:floaterm_autoclose = 2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim Markdown Previewer
+
+augroup markdown
+   autocmd!
+   autocmd BufNewFile,BufRead *.txt,*.md,*.markdown set syntax=markdown
+   autocmd FileType markdown nmap <F3> <Plug>MarkdownPreviewToggle
+augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-commentary configuration
+
+" Modify comment string for CS files
+" augroup unity
+"     autocmd!
+"     autocmd FileType cs setlocal commentstring=#// %s
+" augroup END
