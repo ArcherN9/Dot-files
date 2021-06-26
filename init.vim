@@ -79,6 +79,9 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 " Live markdown preview         https://github.com/iamcco/markdown-preview.nvim
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}                               
 
+" Material Monokai Color Scheme for Vim https://github.com/skielbasa/vim-material-monokai
+Plug 'skielbasa/vim-material-monokai'
+
 " -----------------------------------------------------------------------
 "
 " Initialize plugin system
@@ -121,8 +124,9 @@ set tabstop=4				            " Sets the indentation to 4 spaces and not a tab ch
 set shiftwidth=4
 set expandtab
 set encoding=utf8                       " UTF8 is required to show glyphs
+let g:materialmonokai_italic=1          " Enable italic comments (terminal permitting)
 try
-	colorscheme material
+	colorscheme material-monokai
 catch
 endtry
 let g:vim_markdown_conceal = 0          " Disable conceal. Though a feature to inherently assist to easily read files, I find it difficult to edit markdown elements using this feature.
@@ -131,8 +135,11 @@ let g:vim_markdown_conceal_code_blocks = 0
 " Set the background as a Dark theme
 set background=dark						
 " Setup a similar theme for Airline too
-let g:airline_theme='luna'
-let g:material_theme_style = 'lighter-community'
+let g:airline_theme='materialmonokai'
+" let g:material_theme_style = 'lighter-community'
+" By default both sides of the bar will change color based on the current mode.
+" Turning this setting on will make only the mode label change color
+let g:materialmonokai_subtle_airline=1
 
 " Customize the map leader. Wherever <leader> shows up on vimrc
 " this is the key that replaces it when dealing with hot keys
