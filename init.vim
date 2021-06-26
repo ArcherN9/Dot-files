@@ -373,10 +373,21 @@ map <leader>1 :tabprevious<cr>
 map <leader>2 :tabnext<cr>
 
 " GoTo code navigation.
-nmap <silent> gk <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <C-c>d <Plug>(coc-definition)
+nmap <silent> <C-c>i <Plug>(coc-implementation)
+nmap <silent> <C-c>r <Plug>(coc-references)
+" Use K to show documentation in preview window.
+nnoremap <silent><leader>d :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -391,6 +402,8 @@ augroup end
 
 " Remap keys for applying codeAction to the current buffer.
 nmap <silent><c-@> <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <silent> <C-c>f <Plug>(coc-fix-current)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
