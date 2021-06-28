@@ -294,8 +294,8 @@ nmap <C-g>u <Plug>(GitGutterUndoHunk)
 
 " At times, it is important to just view Modifications made in a file. Using
 " this section, a user may iteratively jump to different hunks within a file.
-nmap <C-g><Down> <Plug>(GitGutterNextHunk)
-nmap <C-g><Up> <Plug>(GitGutterPrevHunk)
+nmap <C-g>j <Plug>(GitGutterNextHunk)
+nmap <C-g>k <Plug>(GitGutterPrevHunk)
 
 " To use this, place the editor in Visual mode, select the code section that
 " is to be staged and stage the changes.
@@ -553,6 +553,7 @@ augroup markdown
    autocmd!
    autocmd BufNewFile,BufRead *.txt,*.md,*.markdown set syntax=markdown
    autocmd FileType markdown nmap <F3> <Plug>MarkdownPreviewToggle
+   autocmd FileType markdown colorscheme onedark
 augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
