@@ -149,6 +149,14 @@ export FrameworkPathOverride=$(which mono)
 export FZF_DEFAULT_COMMAND='fd --type f --color auto --threads 4'
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# To control the command <Leader>-C: Quick enter directories
+export FZF_ALT_C_COMMAND="fd --type d --color auto --threads 4"
+# Setup a Dracula theme for FZF 
+# Refer https://draculatheme.com/fzf
+export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
+    --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
+    --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
+    --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
 # Bat Configuration
 export BAT_CONFIG_PATH=/Users/daksh_s/.dot-files/bat.conf
