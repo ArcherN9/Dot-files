@@ -8,3 +8,11 @@
 # Fore more info: https://nektony.com/blog/how-to-get-to-library-on-mac
 # All these files help your Mac and applications to function as they should and work fast.
 [Ll]ibrary/
+
+# Inside Unity projects, the meta files are used to store GUIDs of each file
+# craeted. These are required by Unity and the user need not bother with them.
+# fd does honour .gitignore but these .meta files should be committed to 
+# source code respositories too. Hence, they are ignored from FZF and FD on a
+# global scale
+# Refer: https://unityatscale.com/unity-meta-file-guide/understanding-meta-files-and-guids/
+**/*.meta
