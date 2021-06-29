@@ -145,6 +145,11 @@ export FLUTTER_BIN=/opt/flutter/bin
 export EDITOR='nvim'
 export FrameworkPathOverride=$(which mono)
 
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f --color auto --threads 4'
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # Bat Configuration
 export BAT_CONFIG_PATH=/Users/daksh_s/.dot-files/bat.conf
 
