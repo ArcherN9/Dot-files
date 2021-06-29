@@ -16,3 +16,7 @@
 # global scale
 # Refer: https://unityatscale.com/unity-meta-file-guide/understanding-meta-files-and-guids/
 **/*.meta
+
+# .Unity files should only be edited via the Unity editors.
+# Refer: https://fileinfo.com/extension/unity
+**/*.unity
