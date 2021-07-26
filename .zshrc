@@ -97,6 +97,12 @@ export LANG=en_US.UTF-8
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export PASSWORD_STORE_DIR=$HOME/.password-store
 
+# NVM for Node management
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
@@ -128,6 +134,7 @@ bindkey "^[^[[D" backward-word
 alias pc="pass clip"
 alias c="clear"
 alias vim="nvim"
+alias gpg2=gpg
 
 # Setup custom export variables
 export ADB_HOME=/Users/daksh_s/Library/Android/sdk/platform-tools/
@@ -139,11 +146,10 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Hom
 export JDK_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export RUBYGEMS_HOME=/Users/daksh_s/.gem/ruby/3.0.0/bin
-export RUBY=/usr/local/opt/ruby/bin
 export FLUTTER_BIN=/opt/flutter/bin
 export EDITOR='nvim'
 export FrameworkPathOverride=$(which mono)
+export RVM=$HOME/.rvm/bin
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color auto --threads 4'
@@ -162,12 +168,9 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
 export BAT_CONFIG_PATH=/Users/daksh_s/.dot-files/bat.conf
 
 # Entries forefully made to enter due software installations | following variables were suggested to be added to $PATH
-export LDFLAGS="-L/usr/local/opt/openssl/lib:-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl/include:-I/usr/local/opt/ruby/include"
 export OPEN_SSL=/usr/local/opt/openssl/bin
 export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/ruby/lib/pkgconfig"
 
 # Add all to path
-export PATH=$RUBYGEMS_HOME:$RUBY:$PATH:$ADB_HOME:$PIP:$ANDROID_HOME:$JAVA_HOME:$JDK_HOME:$LDFFLAGS:$CPPFLAGS:$OPEN_SSL:$PKG_CONFIG_PATH:$PIP_INSTALLS:$PIP_INSTALLS_2:$FLUTTER_BIN:$BAT_CONFIG_PATH:$FrameworkPathOverride
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH=$RVM:$PATH:$ADB_HOME:$PIP:$ANDROID_HOME:$JAVA_HOME:$JDK_HOME:$CPPFLAGS:$OPEN_SSL:$PKG_CONFIG_PATH:$PIP_INSTALLS:$PIP_INSTALLS_2:$FLUTTER_BIN:$BAT_CONFIG_PATH:$FrameworkPathOverride
