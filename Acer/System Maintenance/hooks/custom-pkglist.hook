@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Updating Pacman package list under user dot files
+When        = PostTransaction
+Exec        = /bin/sh -c '/usr/bin/pacman -Qqen > "/home/daksh_s/.dot-files/Acer/System Maintenance/pkglist"'
