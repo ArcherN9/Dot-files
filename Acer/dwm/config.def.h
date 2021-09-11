@@ -11,16 +11,16 @@ static const int sidepad            = 10;       /* horizontal padding of bar */
 static const char *fonts[]          = { "JetBrains Mono:size=10:antialias=true" };
 static const char dmenufont[]       = "JetBrains Mono:size=10:antialias=true";
 
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#282a36";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
+static const char col_gray3[]       = "#fbfbf2";
+static const char col_gray4[]       = "#44475a";
 
 static const char col_purple1[]     = "#9580ff";
 static const char col_cyan[]        = "#222222";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
 	[SchemeSel]  = { col_gray1, col_purple1, col_gray4 },
 };
 
