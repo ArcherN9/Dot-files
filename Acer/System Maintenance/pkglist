@@ -8,10 +8,10 @@ binutils
 bison
 dhcpcd
 discord
+etckeeper
 fakeroot
 fd
 feh
-firefox-developer-edition
 flex
 fzf
 gcc
@@ -48,8 +48,11 @@ qrencode
 sudo
 texinfo
 thunar
+thunderbird
+ttf-font-awesome
 unzip
 usbmuxd
+vivaldi
 weechat
 wget
 which
