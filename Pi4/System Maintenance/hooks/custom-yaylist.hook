@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Updating Yay package list under user dot files
+When        = PostTransaction
+Exec        = /bin/sh -c '/usr/bin/yay -Qqen > "/home/daksh_s/.dot-files/Pi4/System Maintenance/yaypkglist"'
