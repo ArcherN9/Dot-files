@@ -552,7 +552,7 @@ let g:floaterm_autoclose = 2
 augroup markdown
    autocmd!
    autocmd BufNewFile,BufRead *.txt,*.md,*.markdown set syntax=markdown
-   autocmd FileType markdown nmap <F3> <Plug>MarkdownPreviewToggle
+   autocmd FileType markdown nmap <F5> <Plug>MarkdownPreviewToggle
    autocmd FileType markdown colorscheme onedark
 augroup END
 
