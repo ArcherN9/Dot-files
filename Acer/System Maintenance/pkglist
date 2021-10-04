@@ -1,5 +1,6 @@
 accountsservice
 alacritty
+android-udev
 autoconf
 automake
 base
@@ -52,6 +53,7 @@ thunderbird
 ttf-font-awesome
 unzip
 usbmuxd
+usbutils
 vivaldi
 weechat
 wget
