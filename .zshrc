@@ -136,21 +136,6 @@ alias c="clear"
 alias vim="nvim"
 alias gpg2=gpg
 
-# Setup custom export variables
-export ADB_HOME=/Users/daksh_s/Library/Android/sdk/platform-tools/
-export ANDROID_HOME=/Users/daksh_s/Library/Android/sdk
-export PIP=/Users/daksh_s/Library/Python/2.7/lib/python/site-packages
-export PIP_INSTALLS=/Users/daksh_s/Library/Python/3.8/bin
-export PIP_INSTALLS_2=/usr/local/lib/python3.8/site-packages
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre
-export JDK_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export FLUTTER_BIN=/opt/flutter/bin
-export EDITOR='nvim'
-export FrameworkPathOverride=$(which mono)
-export RVM=$HOME/.rvm/bin
-
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color auto --threads 4'
 # To apply the command to CTRL-T as well
@@ -164,13 +149,10 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
     --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
     --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
-# Bat Configuration
-export BAT_CONFIG_PATH=/Users/daksh_s/.dot-files/bat.conf
-
-# Entries forefully made to enter due software installations | following variables were suggested to be added to $PATH
-export CPPFLAGS="-I/usr/local/opt/openssl/include:-I/usr/local/opt/ruby/include"
-export OPEN_SSL=/usr/local/opt/openssl/bin
-export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/ruby/lib/pkgconfig"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export RVM=$HOME/.rvm/bin
 
 # Add all to path
-export PATH=$RVM:$PATH:$ADB_HOME:$PIP:$ANDROID_HOME:$JAVA_HOME:$JDK_HOME:$CPPFLAGS:$OPEN_SSL:$PKG_CONFIG_PATH:$PIP_INSTALLS:$PIP_INSTALLS_2:$FLUTTER_BIN:$BAT_CONFIG_PATH:$FrameworkPathOverride
+export PATH=$PATH:$RVM
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
