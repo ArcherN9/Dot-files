@@ -291,7 +291,6 @@ nmap <C-g>p <Plug>(GitGutterPreviewHunk)
 " Deletes the modifications carried out to a hunk when the cursor is hovering
 " over a modified hunk.
 nmap <C-g>u <Plug>(GitGutterUndoHunk)
-
 " At times, it is important to just view Modifications made in a file. Using
 " this section, a user may iteratively jump to different hunks within a file.
 nmap <C-g>j <Plug>(GitGutterNextHunk)
@@ -377,7 +376,7 @@ nmap <silent> <C-c>d <Plug>(coc-definition)
 nmap <silent> <C-c>i <Plug>(coc-implementation)
 nmap <silent> <C-c>r <Plug>(coc-references)
 " Use K to show documentation in preview window.
-nnoremap <silent><leader>d :call <SID>show_documentation()<CR>
+nnoremap <silent>? :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)

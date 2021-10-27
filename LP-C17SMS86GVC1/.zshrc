@@ -99,8 +99,8 @@ export PASSWORD_STORE_DIR=$HOME/.password-store
 
 # NVM for Node management
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 
 # Preferred editor for local and remote sessions
@@ -133,23 +133,24 @@ bindkey "^[^[[D" backward-word
 # FZF and copy passwords to the clip board
 alias pc="pass clip"
 alias c="clear"
-alias vim="nvim"
 alias gpg2=gpg
 
 # Setup custom export variables
-export ADB_HOME=/Users/daksh_s/Library/Android/sdk/platform-tools/
-export ANDROID_HOME=/Users/daksh_s/Library/Android/sdk
-export PIP=/Users/daksh_s/Library/Python/2.7/lib/python/site-packages
-export PIP_INSTALLS=/Users/daksh_s/Library/Python/3.8/bin
-export PIP_INSTALLS_2=/usr/local/lib/python3.8/site-packages
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/jre
-export JDK_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home
+export ADB_HOME=$HOME/Library/Android/sdk/platform-tools
+# export PIP=/Users/daksh_s/Library/Python/2.7/lib/python/site-packages
+# export PIP_INSTALLS=/Users/daksh_s/Library/Python/3.8/bin
+# export PIP_INSTALLS_2=/usr/local/lib/python3.8/site-packages
+export JDK_HOME=/usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home
+export JAVA_HOME=/usr/local/Cellar/openjdk@11/11.0.12/
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export FLUTTER_BIN=/opt/flutter/bin
 export EDITOR='nvim'
 export FrameworkPathOverride=$(which mono)
 export RVM=$HOME/.rvm/bin
+export FLUTTER_HOME=/opt/flutter/bin
+export BAT_CONFIG_PATH=$HOME/.dot-files/bat.conf
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color auto --threads 4'
@@ -164,13 +165,5 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
     --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
     --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
-# Bat Configuration
-export BAT_CONFIG_PATH=/Users/daksh_s/.dot-files/bat.conf
-
-# Entries forefully made to enter due software installations | following variables were suggested to be added to $PATH
-export CPPFLAGS="-I/usr/local/opt/openssl/include:-I/usr/local/opt/ruby/include"
-export OPEN_SSL=/usr/local/opt/openssl/bin
-export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig:/usr/local/opt/ruby/lib/pkgconfig"
-
 # Add all to path
-export PATH=$RVM:$PATH:$ADB_HOME:$PIP:$ANDROID_HOME:$JAVA_HOME:$JDK_HOME:$CPPFLAGS:$OPEN_SSL:$PKG_CONFIG_PATH:$PIP_INSTALLS:$PIP_INSTALLS_2:$FLUTTER_BIN:$BAT_CONFIG_PATH:$FrameworkPathOverride
+export PATH=$RVM:$PATH:$ADB_HOME:$PIP:$ANDROID_HOME:$JAVA_HOME:$JDK_HOME:$CPPFLAGS:$OPEN_SSL:$PKG_CONFIG_PATH:$PIP_INSTALLS:$PIP_INSTALLS_2:$FLUTTER_BIN:$BAT_CONFIG_PATH:$FrameworkPathOverride:$FLUTTER_HOME
