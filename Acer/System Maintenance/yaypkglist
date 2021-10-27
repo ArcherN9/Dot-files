@@ -1,6 +1,7 @@
 [1m[33m ->[0m[0m Avoid running yay as root/sudo.
 accountsservice
 alacritty
+android-udev
 autoconf
 automake
 base
@@ -53,6 +54,7 @@ thunderbird
 ttf-font-awesome
 unzip
 usbmuxd
+usbutils
 vivaldi
 weechat
 wget
