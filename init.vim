@@ -35,12 +35,6 @@ Plug 'OmniSharp/omnisharp-vim'
 "  vim-coc              		https://github.com/neoclide/coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-"  Goyo.vim             		https://github.com/junegunn/goyo.vim
-Plug 'junegunn/goyo.vim'
-
-"  Limelight            		https://github.com/junegunn/limelight.vim
-Plug 'junegunn/limelight.vim'
-
 "  fern-renderer-nerdfont.vim    	https://github.com/lambdalisue/fern-renderer-nerdfont.vim
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 
@@ -60,18 +54,6 @@ Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 
 "  vim-commentary       		https://github.com/tpope/vim-commentary
 Plug 'tpope/vim-commentary'
-
-"  kotlin-vim           		https://github.com/udalov/kotlin-vim
-Plug 'udalov/kotlin-vim'
-
-"  neomake              		https://github.com/neomake/neomake
-Plug 'neomake/neomake'
-
-"  vim-floaterm         		https://github.com/voldikss/vim-floaterm
-Plug 'voldikss/vim-floaterm'
-
-" Nord-Vim                      https://github.com/arcticicestudio/nord-vim
-Plug 'arcticicestudio/nord-vim'
 
 " Material.vim                  https://github.com/kaicataldo/material.vim
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
@@ -309,7 +291,11 @@ nmap <C-g>s <Plug>(GitGutterStageHunk)
 let g:OmniSharp_server_stdio = 1
 
 " On Mac OS, using Mono is a requirement
-"let g:OmniSharp_server_use_mono = 1
+let g:OmniSharp_server_use_mono = 1
+
+" Use FZF as the selector for Code Actions and Find Symbols features:
+let g:OmniSharp_selector_ui = 'fzf'
+
 " -----------------------------------------------------------------------
 " CoC Configuration Options
 "
@@ -419,17 +405,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Goyo Vim configurations
-let g:goyo_width = 150
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Limelight configuration
-augroup Limelight
-    autocmd! 
-    autocmd user GoyoEnter Limelight
-    autocmd user GoyoLeave Limelight!
-augroup end
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " glyph-palette configuration
 
 augroup my-glyph-palette
@@ -533,18 +508,6 @@ function! s:KotlinExecute()
                 \ java -jar '.expand('%').'.jar'
 endfunction
 "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-Floaterm configuration
-"
-" Opens up a float term window when the user presses <\-t>
-let g:floaterm_keymap_toggle = '<leader>t'
-
-" Define a new Title for the terminal that opens up
-let g:floaterm_title = "Terminal ($1/$2)"
-
-" Whether to close floaterm window once the job gets finished.
-let g:floaterm_autoclose = 2
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim Markdown Previewer
 
