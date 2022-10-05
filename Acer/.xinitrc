@@ -32,10 +32,10 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # Set the Keyboard map to US International layout
-setxkbmap us intl &
+#setxkbmap us intl &
 
 # Set the wallpaper using Nitrogen
-nitrogen --restore &
+# nitrogen --restore &
 
 # Start an SSH-Agent during login. This is particuarly a turn of when trying
 # to add SSH Keys for authentication
@@ -45,8 +45,12 @@ ssh-add -s &
 # the hostname utility. it can be used to trick certain applications
 # This is added to fix grey box issues with IntelliJ and Android studio
 # Refer https://wiki.archlinux.org/title/Java#Non-reparenting_window_managers
-wmname compiz &
+# wmname compiz &
+
+# The DWM status bar is updated using xsetroot command. 
+# A cron job creates a temp file with the content to be updated
+# and the below script simply reads the output and sets it to the status bar
+# $HOME/.dot-files/Acer/dwm/./dwm-xsetroot-execute.sh &
 
 # Execute DWM desktop manager
-exec dwm
-#exec $HOME/.dwm/autostart
+exec startxfce4

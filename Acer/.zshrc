@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="common"
+ZSH_THEME="awesomepanda"
 
 # Type written theme configuration options
 export TYPEWRITTEN_PROMPT_LAYOUT="pure"
@@ -149,8 +149,7 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
 
 export BAT_CONFIG_PATH=$HOME/.dot-files/bat.conf
 export RVM=$HOME/.rvm/bin
-export ANDROID_SDK_ROOT=$HOME/.android
-export ADB_HOME=$HOME/.android/platform-tools
+export DISCORD=/opt/Discord
 
 # Add all to path
-export PATH=$PATH:$BAT_CONFIG_PATH:$ANDROID_SDK_ROOT:$RVM:$ADB_HOME
+export PATH=$PATH:$BAT_CONFIG_PATH:$RVM:$DISCORD
