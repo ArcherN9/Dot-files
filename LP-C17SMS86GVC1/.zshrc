@@ -137,20 +137,17 @@ alias gpg2=gpg
 
 # Setup custom export variables
 export ADB_HOME=$HOME/Library/Android/sdk/platform-tools
-# export PIP=/Users/daksh_s/Library/Python/2.7/lib/python/site-packages
-# export PIP_INSTALLS=/Users/daksh_s/Library/Python/3.8/bin
-# export PIP_INSTALLS_2=/usr/local/lib/python3.8/site-packages
-export JDK_HOME=/usr/local/Cellar/openjdk@11/11.0.12/libexec/openjdk.jdk/Contents/Home
-export JAVA_HOME=/usr/local/Cellar/openjdk@11/11.0.12/
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export FLUTTER_BIN=/opt/flutter/bin
 export EDITOR='nvim'
 export FrameworkPathOverride=$(which mono)
 export RVM=$HOME/.rvm/bin
-export FLUTTER_HOME=/opt/flutter/bin
+export GIT_HOME=/usr/local/Cellar/git/2.33.1_1/bin
 export BAT_CONFIG_PATH=$HOME/.dot-files/bat.conf
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export JENV=$HOME/.jenv/bin
+export DART_PUB=$HOME/.pub-cache/bin
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color auto --threads 4'
@@ -166,4 +163,4 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
     --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
 # Add all to path
-export PATH=$RVM:$PATH:$ADB_HOME:$PIP:$ANDROID_HOME:$JAVA_HOME:$JDK_HOME:$CPPFLAGS:$OPEN_SSL:$PKG_CONFIG_PATH:$PIP_INSTALLS:$PIP_INSTALLS_2:$FLUTTER_BIN:$BAT_CONFIG_PATH:$FrameworkPathOverride:$FLUTTER_HOME
+export PATH=$GIT_HOME:$RVM:$PATH:$ADB_HOME:$BAT_CONFIG_PATH:$FrameworkPathOverride:$JENV:$DART_PUB
