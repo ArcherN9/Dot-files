@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="common"
+ZSH_THEME="robbyrussell"
 
 # Type written theme configuration options
 export TYPEWRITTEN_PROMPT_LAYOUT="pure"
@@ -134,9 +134,10 @@ bindkey "^[^[[D" backward-word
 alias pc="pass clip"
 alias c="clear"
 alias gpg2=gpg
+alias ssh="TERM=xterm-256color $(which ssh)"
 
-# Setup custom export variables
-export ADB_HOME=$HOME/Library/Android/sdk/platform-tools
+# Jenv
+eval "$(jenv init -)"
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -148,6 +149,9 @@ export BAT_CONFIG_PATH=$HOME/.dot-files/bat.conf
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export JENV=$HOME/.jenv/bin
 export DART_PUB=$HOME/.pub-cache/bin
+export REPO_OS_OVERRIDE=macosx
+export ANDROID_HOME=~/Library/Android/sdk
+export ADB_HOME=~/Library/Android/sdk/platform-tools
 
 # Setting fd as the default source for fzf
 export FZF_DEFAULT_COMMAND='fd --type f --color auto --threads 4'
@@ -163,4 +167,4 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
     --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
 # Add all to path
-export PATH=$GIT_HOME:$RVM:$PATH:$ADB_HOME:$BAT_CONFIG_PATH:$FrameworkPathOverride:$JENV:$DART_PUB
+export PATH=$GIT_HOME:$RVM:$PATH:$BAT_CONFIG_PATH:$FrameworkPathOverride:$JENV:$DART_PUB:$ANDROID_HOME:$ADB_HOME
