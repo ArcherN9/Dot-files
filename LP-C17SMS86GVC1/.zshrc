@@ -28,7 +28,7 @@ export TYPEWRITTEN_SYMBOL="$"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -135,6 +135,7 @@ alias pc="pass clip"
 alias c="clear"
 alias gpg2=gpg
 alias ssh="TERM=xterm-256color $(which ssh)"
+alias stripJson=strip-json-comments
 
 # Jenv
 eval "$(jenv init -)"
@@ -168,3 +169,5 @@ export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
 
 # Add all to path
 export PATH=$GIT_HOME:$RVM:$PATH:$BAT_CONFIG_PATH:$FrameworkPathOverride:$JENV:$DART_PUB:$ANDROID_HOME:$ADB_HOME
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
