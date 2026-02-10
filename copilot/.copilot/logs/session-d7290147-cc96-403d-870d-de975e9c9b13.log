@@ -1,0 +1,9 @@
+2025-12-18T21:09:24.473Z [INFO] Starting Copilot CLI: 0.0.370
+Commit: 5188822
+2025-12-18T21:09:24.473Z [INFO] Node.js version: v24.11.1
+2025-12-18T21:09:24.794Z [INFO] Login status unknown
+2025-12-18T21:09:24.870Z [ERROR] Error: spawn gh ENOENT
+2025-12-18T21:09:24.870Z [ERROR] Error: spawn gh ENOENT
+2025-12-18T21:09:24.899Z [INFO] Logged out
+2025-12-18T21:09:24.919Z [ERROR] Error: spawn gh ENOENT
+2025-12-18T21:09:29.818Z [INFO] No update needed, current version is 0.0.370, fetched latest release is v0.0.370
