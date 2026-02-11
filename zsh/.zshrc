@@ -10,9 +10,18 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd
-bindkey -e
+bindkey -v
 autoload -Uz compinit
 compinit
+
+# Set default editor
+export EDITOR=nvim
+export VISUAL=nvim
+
+# Edit command line in $EDITOR with Alt-e
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^[e' edit-command-line
 
 # Platform detection
 if [[ "$OSTYPE" == "darwin"* ]]; then
