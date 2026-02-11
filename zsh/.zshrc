@@ -75,9 +75,26 @@ alias gpg2=gpg
 alias ssh="TERM=xterm-256color $(which ssh)"
 alias stripJson=strip-json-comments
 alias lsa='ls -lsa --color=auto'
+alias ls='ls --color=auto'
 alias ..='cd ..'
 alias klogin='kiro-cli login --use-device-flow'
 alias kcli='kiro-cli'
+alias gst='git status'
+alias ggpush='git push'
+alias ggpull='git pull'
+alias gc='git commit'
+alias ga='git add'
+
+# Enable colorized output
+export CLICOLOR=1
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+
+# zsh-syntax-highlighting 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+else
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+fi
 
 # FZF Configuration
 # Use fd for faster file/directory search
