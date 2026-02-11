@@ -1,0 +1,35 @@
+# Alacritty Configuration File
+# Location: ~/.config/alacritty/alacritty.toml
+
+[general]
+# Import Catppuccin Mocha theme
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+
+[window]
+# Slight transparency for better desktop integration
+opacity = 0.95
+# Full window decorations for native macOS look
+decorations = "full"
+# Automatically adjust padding for better text visibility
+dynamic_padding = true
+# Left Option key acts as Alt for terminal shortcuts, right Option for special characters
+option_as_alt = "OnlyLeft"
+
+[font]
+# Comfortable reading size for high-DPI displays
+size = 13.0
+
+[font.normal]
+# SauceCodePro Nerd Font supports Powerlevel10k icons and glyphs
+family = "SauceCodePro Nerd Font"
+style = "Regular"
+
+[cursor]
+# Block cursor for better visibility
+style = "Block"
+# Hollow cursor when window is unfocused
+unfocused_hollow = true
+
+[terminal.shell]
+# Use zsh with Powerlevel10k configuration
+program = "/bin/zsh"
