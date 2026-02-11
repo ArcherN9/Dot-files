@@ -1,0 +1,133 @@
+" ============================================================================
+" IdeaVim Configuration
+" ============================================================================
+" Purpose: IntelliJ IDEA Vim emulation configuration
+"
+" This configuration sources shared NeoVim mappings and adds IntelliJ-specific
+" functionality using IdeaVim's :action commands.
+"
+" Structure:
+"   1. Source shared configuration from NeoVim directory
+"   2. IntelliJ-specific settings
+"   3. IntelliJ-specific mappings (Git, Build, Debug, Search, etc.)
+" ============================================================================
+
+" ----------------------------------------------------------------------------
+" Source Shared Configuration
+" ----------------------------------------------------------------------------
+" Load keyboard layout and shared mappings from NeoVim config directory
+" These files are shared between IdeaVim (IntelliJ) and VSCode NeoVim extension
+
+source ~/.config/nvim/keyboard-layout.vim
+source ~/.config/nvim/shared-mappings.vim
+
+" ----------------------------------------------------------------------------
+" IntelliJ-Specific Settings
+" ----------------------------------------------------------------------------
+" ideajoin: Use IntelliJ's smart join instead of Vim's default join behavior
+" idearefactormode: Keep the refactoring mode consistent with IntelliJ
+
+set ideajoin
+set idearefactormode=keep
+
+" ----------------------------------------------------------------------------
+" Navigation History Mappings
+" ----------------------------------------------------------------------------
+" Navigate backward and forward through code navigation history
+
+nnoremap <F1> :action Back<CR>
+nnoremap <F2> :action Forward<CR>
+
+" ----------------------------------------------------------------------------
+" Code Navigation Mappings
+" ----------------------------------------------------------------------------
+" Quick access to code navigation features
+
+nnoremap <C-d> :action GotoDeclaration<CR>
+
+" ----------------------------------------------------------------------------
+" Git VCS Mappings
+" ----------------------------------------------------------------------------
+" Git operations using IntelliJ's VCS actions
+" Extended Git VCS mappings with <M-g> prefix
+
+nnoremap <M-g>u :action Vcs.RollbackChangedLines<CR>
+nnoremap <M-g>j :action VcsShowNextChangeMarker<CR>
+nnoremap <M-g>k :action VcsShowPrevChangeMarker<CR>
+nnoremap <M-g>p :action Vcs.Push<CR>
+nnoremap <M-g>f :action Git.Fetch<CR>
+nnoremap <M-g>c :action CheckinFiles<CR>
+nnoremap <M-g>d :action Diff.ShowStandaloneDiff<CR>
+nnoremap <M-g>a :action Annotate<CR>
+
+" ----------------------------------------------------------------------------
+" Diff Navigation Mappings
+" ----------------------------------------------------------------------------
+" Navigate between diff changes
+
+nnoremap <M-S-J> :action NextDiff<CR>
+nnoremap <M-S-K> :action PreviousDiff<CR>
+
+" ----------------------------------------------------------------------------
+" Debug Mappings
+" ----------------------------------------------------------------------------
+" Debug operations including Android-specific debugging
+
+nnoremap <M-S-d>t :action ToggleLineBreakpoint<CR>
+nnoremap <M-S-d>a :action AndroidConnectDebuggerAction<CR>
+nnoremap <M-S-d>b :action ViewBreakpoints<CR>
+
+" ----------------------------------------------------------------------------
+" Build and Run Mappings
+" ----------------------------------------------------------------------------
+" Build, run, and debug operations including Android-specific builds
+
+nnoremap <leader>bc :action CleanGradleProject<CR>
+nnoremap <F5> :action Run<CR>
+nnoremap <F6> :action Debug<CR>
+nnoremap <F7> :action Android.SyncProject<CR>
+
+" ----------------------------------------------------------------------------
+" File and Action Search Mappings
+" ----------------------------------------------------------------------------
+" Quick navigation and search functionality with <leader>p prefix
+
+nnoremap <leader>pf :action GotoFile<CR>
+nnoremap <leader>pa :action GotoAction<CR>
+nnoremap <leader>pt :action FindInPath<CR>
+
+" ----------------------------------------------------------------------------
+" File Operation Mappings
+" ----------------------------------------------------------------------------
+" Save, format, and close file operations
+
+nnoremap <leader>ww :w<CR>:action ReformatCode<CR>
+nnoremap <leader>wq <leader>ww:action CloseContent<CR>
+nnoremap <leader>q :action CloseContent<CR>
+
+" ----------------------------------------------------------------------------
+" Split Management Mappings
+" ----------------------------------------------------------------------------
+" Manage editor splits and their orientation
+
+nnoremap <leader>[ :action ChangeSplitOrientation<CR>
+nnoremap <leader>sv :action SplitVertically<CR> :action MoveEditorToOppositeTabGroup<CR> :action CloseContent<CR>
+nnoremap <leader>sh :action SplitHorizontally<CR> :action MoveEditorToOppositeTabGroup<CR> :action CloseContent<CR>
+nnoremap <leader>su :action Unsplit<CR>
+
+" ----------------------------------------------------------------------------
+" Window and Tab Navigation Mappings
+" ----------------------------------------------------------------------------
+" Navigate between window splits and tabs
+
+nnoremap <M-S-L> :action NextSplitter<CR>
+nnoremap <M-S-H> :action PrevSplitter<CR>
+nnoremap <M-L> :action NextTab<CR>
+nnoremap <M-H> :action PreviousTab<CR>
+
+" ----------------------------------------------------------------------------
+" Utility Mappings
+" ----------------------------------------------------------------------------
+" Additional utility commands
+
+nnoremap <leader><C-p> :action RunAnything<CR>
