@@ -4,27 +4,29 @@ Personal Kiro CLI configuration synced across devices.
 
 ## Agents
 
-### Github
-GitHub operations agent for repository management, issue tracking, pull request workflows, code search, and user activity monitoring.
+### Triage
+Android application production issue triaging specialist for analyzing Firebase crash reports and implementing fixes.
 
 **MCP Servers:**
-- `github` - GitHub Copilot MCP server
+- `firebase` - Firebase CLI MCP server (Crashlytics, Performance Monitoring)
+- `atlassian` - Atlassian MCP server (Jira, Confluence, Compass)
 
-### Ikano
-Agent with Atlassian, ServiceNow, and Firebase integration for Jira, Confluence, Compass, ServiceNow operations, and Firebase project management.
+### Architect
+Mobile applications architect focused on prudent architecture design and documentation for BFSI sector applications.
 
 **MCP Servers:**
 - `atlassian` - Atlassian MCP server (Jira, Confluence, Compass)
-- `servicenow` - ServiceNow MCP server
-- `firebase` - Firebase CLI MCP server (project management, Firestore, Auth, Storage, Cloud Messaging)
+- `context7` - Context7 MCP server for context management
 
-### Job
-Agent with Perplexity integration for deep research and web search capabilities.
+### Developer
+Mobile application developer with design integration, task management, and version control capabilities.
 
 **MCP Servers:**
-- `perplexity` - Perplexity AI MCP server
+- `figma` - Figma MCP server (design specifications)
+- `atlassian` - Atlassian MCP server (Jira, Confluence, Compass)
+- `context7` - Context7 MCP server for context management
+- `github` - GitHub Copilot MCP server (repository management, PRs, issues)
 
 ## Notes
 
-- ServiceNow MCP server requires separate installation (excluded from repo)
-- Set required environment variables: `GH_PAT`, `PERPLEXITY_API_KEY`
+- Set required environment variables: `GH_PAT`, `CONTEXT7_API_KEY`
