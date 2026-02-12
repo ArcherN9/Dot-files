@@ -33,3 +33,4 @@ unfocused_hollow = true
 [terminal.shell]
 # Use zsh with Powerlevel10k configuration
 program = "/bin/zsh"
+args = ["-l"]

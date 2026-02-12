@@ -22,6 +22,7 @@ call plug#begin('~/.local/share/nvim/plugged') " directory for plugins
 " ----------------------------------------------------------------------------
 Plug 'catppuccin/nvim' " Catppuccin colorscheme
 Plug 'lewis6991/gitsigns.nvim' " Git gutter signs
+Plug 'preservim/vim-markdown' " Markdown syntax highlighting
 
 call plug#end() " end of plugin management
 
