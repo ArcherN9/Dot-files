@@ -14,7 +14,7 @@
 
 " Configuration: Set your keyboard layout here
 " Valid values: "SE" or "US"
-let g:keyboard_layout = "SE"
+let g:keyboard_layout = "US"
 
 " Apply layout-specific settings
 if g:keyboard_layout == "SE"
