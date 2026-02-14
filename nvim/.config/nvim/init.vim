@@ -24,11 +24,34 @@ Plug 'catppuccin/nvim' " Catppuccin colorscheme
 Plug 'lewis6991/gitsigns.nvim' " Git gutter signs
 Plug 'preservim/vim-markdown' " Markdown syntax highlighting
 Plug 'tpope/vim-commentary' " Comment toggling with gcc
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate', 'branch': 'master'}
+Plug 'morhetz/gruvbox' " Gruvbox colorscheme
+Plug 'loctvl842/monokai-pro.nvim' " Monokai Pro colorscheme
 Plug 'junegunn/fzf' " Enable FZF Base within neovim
 Plug 'junegunn/fzf.vim' " Enables neovim specific key bindings for FZF
+Plug 'preservim/vimux' " Tmux integration
+Plug 'williamboman/mason.nvim' " LSP installer
+Plug 'neovim/nvim-lspconfig' " LSP configuration
 
 call plug#end() " end of plugin management
+
+" ----------------------------------------------------------------------------
+" LSP Setup
+" ----------------------------------------------------------------------------
+lua << EOF
+require('mason').setup()
+
+vim.lsp.config['kotlin_language_server'] = {
+  cmd = { 'kotlin-language-server' },
+  filetypes = { 'kotlin' },
+  root_markers = { 'settings.gradle.kts', 'settings.gradle', 'build.gradle.kts', 'build.gradle', '.git' },
+}
+
+vim.lsp.enable('kotlin_language_server')
+EOF
+
+" Go to definition keybinding
+nnoremap <C-d> <cmd>lua vim.lsp.buf.definition()<CR>
 
 " ----------------------------------------------------------------------------
 " Source Shared Configurations (for all environments)

@@ -8,7 +8,6 @@
 " ----------------------------------------------------------------------------
 " Basic Editor Behavior
 " ----------------------------------------------------------------------------
-syntax on
 set number
 set relativenumber
 set clipboard=unnamedplus  " Use system clipboard
@@ -20,6 +19,9 @@ set ignorecase             " Ignore case when searching
 set smartcase              " Override ignorecase if search pattern has uppercase
 set incsearch              " Show matches as you type
 set showmatch              " Highlight matching brackets
+set foldmethod=expr
+set foldexpr=v:lua.vim.treesitter.foldexpr()
+set foldlevelstart=99      " Start with all folds open
 
 filetype plugin indent on  " Enables vim's filetype detection to load language specific indentation rules
 
@@ -34,7 +36,8 @@ set smartindent
 " ----------------------------------------------------------------------------
 " Appearance
 " ----------------------------------------------------------------------------
-colorscheme catppuccin-mocha
+set background=dark
+colorscheme gruvbox
 
 " ----------------------------------------------------------------------------
 " Git Signs Configuration
@@ -47,8 +50,8 @@ EOF
 " Tree-sitter Configuration
 " ----------------------------------------------------------------------------
 lua << EOF
-require('nvim-treesitter.config').setup {
-  ensure_installed = { "kotlin", "java", "vim", "javascript", "typescript" },
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "kotlin", "java", "javascript", "typescript", "vim", "yaml", "xml", "json", "json5", "jsonc" },
   highlight = {
     enable = true,
   },
@@ -68,3 +71,23 @@ nnoremap <leader>q :q<CR>
 nnoremap <leader>pf :Files<CR>
 nnoremap <leader>pb :Buffers<CR>
 nnoremap <leader>pt :Rg<CR>
+
+" ----------------------------------------------------------------------------
+" Vimux Configuration
+" ----------------------------------------------------------------------------
+let g:VimuxHeight = "15"
+let g:VimuxOrientation = "v"
+let g:VimuxUseNearest = 0
+
+" ----------------------------------------------------------------------------
+" Project Runner (Gradle/Command Execution)
+" ----------------------------------------------------------------------------
+lua << EOF
+vim.keymap.set('n', '<leader>pr', function()
+  vim.ui.input({ prompt = 'Command: ' }, function(input)
+    if input then
+      vim.fn.VimuxRunCommand(input)
+    end
+  end)
+end)
+EOF
