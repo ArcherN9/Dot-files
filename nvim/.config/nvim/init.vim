@@ -32,6 +32,7 @@ Plug 'junegunn/fzf.vim' " Enables neovim specific key bindings for FZF
 Plug 'preservim/vimux' " Tmux integration
 Plug 'williamboman/mason.nvim' " LSP installer
 Plug 'neovim/nvim-lspconfig' " LSP configuration
+Plug 'stevearc/conform.nvim' " Formatter
 
 call plug#end() " end of plugin management
 
@@ -48,6 +49,17 @@ vim.lsp.config['kotlin_language_server'] = {
 }
 
 vim.lsp.enable('kotlin_language_server')
+EOF
+
+" ----------------------------------------------------------------------------
+" Formatter Setup (conform.nvim)
+" ----------------------------------------------------------------------------
+lua << EOF
+require('conform').setup({
+  formatters_by_ft = {
+    kotlin = { 'ktlint' },
+  },
+})
 EOF
 
 " Go to definition keybinding

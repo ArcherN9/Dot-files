@@ -43,7 +43,20 @@ colorscheme gruvbox
 " Git Signs Configuration
 " ----------------------------------------------------------------------------
 lua << EOF
-require('gitsigns').setup()
+require('gitsigns').setup({
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+    
+    -- Navigation
+    vim.keymap.set('n', '<M-g>j', gs.next_hunk, { buffer = bufnr })
+    vim.keymap.set('n', '<M-g>k', gs.prev_hunk, { buffer = bufnr })
+    
+    -- Actions
+    vim.keymap.set('n', '<M-g>u', gs.reset_hunk, { buffer = bufnr })
+    vim.keymap.set('n', '<M-g>d', gs.preview_hunk, { buffer = bufnr })
+    vim.keymap.set('n', '<M-g>a', gs.blame_line, { buffer = bufnr })
+  end
+})
 EOF
 
 " ----------------------------------------------------------------------------
@@ -61,13 +74,22 @@ EOF
 " ----------------------------------------------------------------------------
 " File Operation Mappings
 " ----------------------------------------------------------------------------
-nnoremap <leader>ww :w<CR>
+lua << EOF
+vim.keymap.set('n', '<leader>ww', function()
+  require('conform').format({ timeout_ms = 3000 })
+  vim.cmd('w')
+end)
+EOF
+
 nnoremap <leader>wq :w<CR>:q<CR>
 nnoremap <leader>q :q<CR>
 
 " ----------------------------------------------------------------------------
 " Fuzzy Finding Mappings (FZF)
 " ----------------------------------------------------------------------------
+" Use fd (respects gitignore automatically)
+let $FZF_DEFAULT_COMMAND = 'fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+
 nnoremap <leader>pf :Files<CR>
 nnoremap <leader>pb :Buffers<CR>
 nnoremap <leader>pt :Rg<CR>
