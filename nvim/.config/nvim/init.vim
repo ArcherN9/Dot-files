@@ -58,6 +58,7 @@ lua << EOF
 require('conform').setup({
   formatters_by_ft = {
     kotlin = { 'ktlint' },
+    json = { 'prettier' },
   },
 })
 EOF

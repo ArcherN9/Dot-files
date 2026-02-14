@@ -3,6 +3,10 @@
 " ============================================================================
 " Purpose: Settings for NeoVim running in a terminal environment.
 " This file is NOT sourced by VSCode or IntelliJ.
+"
+" Structure:
+"   1. Common terminal settings (editor behavior, appearance, plugins)
+"   2. Keyboard-specific mappings (sourced conditionally)
 " ============================================================================
 
 " ----------------------------------------------------------------------------
@@ -40,26 +44,6 @@ set background=dark
 colorscheme gruvbox
 
 " ----------------------------------------------------------------------------
-" Git Signs Configuration
-" ----------------------------------------------------------------------------
-lua << EOF
-require('gitsigns').setup({
-  on_attach = function(bufnr)
-    local gs = package.loaded.gitsigns
-    
-    -- Navigation
-    vim.keymap.set('n', '<M-g>j', gs.next_hunk, { buffer = bufnr })
-    vim.keymap.set('n', '<M-g>k', gs.prev_hunk, { buffer = bufnr })
-    
-    -- Actions
-    vim.keymap.set('n', '<M-g>u', gs.reset_hunk, { buffer = bufnr })
-    vim.keymap.set('n', '<M-g>d', gs.preview_hunk, { buffer = bufnr })
-    vim.keymap.set('n', '<M-g>a', gs.blame_line, { buffer = bufnr })
-  end
-})
-EOF
-
-" ----------------------------------------------------------------------------
 " Tree-sitter Configuration
 " ----------------------------------------------------------------------------
 lua << EOF
@@ -72,16 +56,26 @@ require('nvim-treesitter.configs').setup {
 EOF
 
 " ----------------------------------------------------------------------------
+" LSP Navigation Mappings (Common)
+" ----------------------------------------------------------------------------
+nnoremap <C-d> <cmd>lua vim.lsp.buf.definition()<CR>
+
+" ----------------------------------------------------------------------------
 " File Operation Mappings
 " ----------------------------------------------------------------------------
 lua << EOF
 vim.keymap.set('n', '<leader>ww', function()
-  require('conform').format({ timeout_ms = 3000 })
-  vim.cmd('w')
+  local success, err = pcall(function()
+    require('conform').format({ timeout_ms = 3000, lsp_fallback = true })
+  end)
+  if not success then
+    print("Format error: " .. tostring(err))
+  end
+  vim.cmd('w!')
 end)
 EOF
 
-nnoremap <leader>wq :w<CR>:q<CR>
+nnoremap <leader>wq :w!<CR>:q<CR>
 nnoremap <leader>q :q<CR>
 
 " ----------------------------------------------------------------------------
@@ -113,3 +107,25 @@ vim.keymap.set('n', '<leader>pr', function()
   end)
 end)
 EOF
+
+" ----------------------------------------------------------------------------
+" Quick Temp File Creation
+" ----------------------------------------------------------------------------
+lua << EOF
+vim.keymap.set('n', '<leader>pn', function()
+  local random = math.random(10000, 99999)
+  local tmpfile = '/tmp/temp_' .. random .. '.json'
+  vim.cmd('enew')
+  vim.cmd('file ' .. tmpfile)
+  vim.bo.filetype = 'json'
+end)
+EOF
+
+" ----------------------------------------------------------------------------
+" Source Keyboard-Specific Terminal Mappings
+" ----------------------------------------------------------------------------
+if g:keyboard_layout == "SE"
+    source ~/.config/nvim/terminal-se.vim
+elseif g:keyboard_layout == "US"
+    source ~/.config/nvim/terminal-us.vim
+endif
