@@ -15,6 +15,7 @@ export DOTNET_ROOT="/opt/homebrew/opt/dotnet@8/libexec"
 export KIRO_CLI="/opt/homebrew/Caskroom/kiro-cli/1.25.1/Kiro CLI.app/Contents/MacOS"
 export KIRO="/opt/homebrew/Caskroom/kiro/0.6.0/Kiro.app/Contents/MacOS"
 export FIGMA="/opt/homebrew/Caskroom/figma/125.10.8/Figma.app/Contents/MacOS"
+export JAVA_HOME="/opt/homebrew/opt/openjdk@17/"
 
 # NVM for macOS
 export NVM_DIR="$HOME/.nvm"
@@ -29,4 +30,4 @@ if command -v rbenv >/dev/null 2>&1; then
   eval "$(rbenv init - --no-rehash zsh)"
 fi
 
-export PATH=$ADB:$ZIPALIGN:$JDK:$DOTNET_ROOT:$KIRO_CLI:$KIRO:$FIGMA:$PATH
+export PATH=$ADB:$ZIPALIGN:$JDK:$DOTNET_ROOT:$KIRO_CLI:$KIRO:$FIGMA:$JAVA_HOME:$PATH
