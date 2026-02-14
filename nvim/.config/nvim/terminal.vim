@@ -21,6 +21,8 @@ set smartcase              " Override ignorecase if search pattern has uppercase
 set incsearch              " Show matches as you type
 set showmatch              " Highlight matching brackets
 
+filetype plugin indent on  " Enables vim's filetype detection to load language specific indentation rules
+
 " ----------------------------------------------------------------------------
 " Indentation
 " ----------------------------------------------------------------------------
@@ -40,3 +42,29 @@ colorscheme catppuccin-mocha
 lua << EOF
 require('gitsigns').setup()
 EOF
+
+" ----------------------------------------------------------------------------
+" Tree-sitter Configuration
+" ----------------------------------------------------------------------------
+lua << EOF
+require('nvim-treesitter.config').setup {
+  ensure_installed = { "kotlin", "java", "vim", "javascript", "typescript" },
+  highlight = {
+    enable = true,
+  },
+}
+EOF
+
+" ----------------------------------------------------------------------------
+" File Operation Mappings
+" ----------------------------------------------------------------------------
+nnoremap <leader>ww :w<CR>
+nnoremap <leader>wq :w<CR>:q<CR>
+nnoremap <leader>q :q<CR>
+
+" ----------------------------------------------------------------------------
+" Fuzzy Finding Mappings (FZF)
+" ----------------------------------------------------------------------------
+nnoremap <leader>pf :Files<CR>
+nnoremap <leader>pb :Buffers<CR>
+nnoremap <leader>pt :Rg<CR>

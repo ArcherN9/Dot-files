@@ -23,6 +23,10 @@ call plug#begin('~/.local/share/nvim/plugged') " directory for plugins
 Plug 'catppuccin/nvim' " Catppuccin colorscheme
 Plug 'lewis6991/gitsigns.nvim' " Git gutter signs
 Plug 'preservim/vim-markdown' " Markdown syntax highlighting
+Plug 'tpope/vim-commentary' " Comment toggling with gcc
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'junegunn/fzf' " Enable FZF Base within neovim
+Plug 'junegunn/fzf.vim' " Enables neovim specific key bindings for FZF
 
 call plug#end() " end of plugin management
 
