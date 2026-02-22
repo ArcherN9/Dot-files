@@ -2,8 +2,8 @@
 # Location: ~/.config/alacritty/alacritty.toml
 
 [general]
-# Import Catppuccin Mocha theme
-import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+# Import Gruvbox Soft Dark theme
+import = ["~/.config/alacritty/gruvbox-soft.toml"]
 
 [window]
 # Slight transparency for better desktop integration
