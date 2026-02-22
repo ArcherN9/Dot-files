@@ -5,11 +5,11 @@ if command -v fzf >/dev/null 2>&1; then
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 
-  # Catppuccin Mocha theme for FZF
+  # Gruvbox Soft theme for FZF
   export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=bg+:#3c3836,bg:#32302f,spinner:#8ec07c,hl:#fb4934 \
+--color=fg:#d5c4a1,header:#fb4934,info:#d3869b,pointer:#fe8019 \
+--color=marker:#fe8019,fg+:#ebdbb2,prompt:#d3869b,hl+:#fb4934 \
 --layout=reverse --border --preview-window=right:60% \
 --bind=alt-j:down,alt-k:up"
 
