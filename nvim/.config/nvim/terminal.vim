@@ -48,7 +48,7 @@ colorscheme gruvbox
 " ----------------------------------------------------------------------------
 lua << EOF
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "kotlin", "java", "javascript", "typescript", "vim", "yaml", "xml", "json", "json5", "jsonc" },
+  ensure_installed = { "kotlin", "java", "javascript", "typescript", "vim", "yaml", "xml", "json", "json5", "ruby" },
   highlight = {
     enable = true,
   },
